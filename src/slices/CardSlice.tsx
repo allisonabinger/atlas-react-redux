@@ -1,38 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Card, List } from "../types";
+import { CardType } from "../types";
 
-interface CardsState {
-  lists: List[]
+type CardState {
+  cards: CardType[];
 }
 
-const initialState: CardsState = {
-  lists: []
+const initialState: CardState = {
+  cards: []
 };
-
-interface AddCardPayload {
-    listId: number;
-    card: Card;
-}
 
 export const cardSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
-    addCard: (state, action: PayloadAction<AddCardPayload>) => {
-      // payload is the data
-      const { listId, card } = action.payload;
-      const list = state.lists.find(list => list.id === listId)
-      if (list) {
-        list.cards.push(card)
-      }
+    addCard: (state, action: PayloadAction<CardType>) => {
+        state.cards.push(action.payload)
     },
-    removeCard: (state, action: PayloadAction<{ listId: number; cardId: number }>) => {
-        const { listId, cardId } = action.payload;
-        const list = state.lists.find(list => list.id === listId)
-        if (list) {
-            list.cards = list.cards.filter(card => card.id !== cardId)
-        }
-    },
+    removeCard: (state, action: PayloadAction<number>) => {
+        state.cards = state.cards.filter(card => card.id !== action.payload)
+    }
   },
 });
 
