@@ -1,4 +1,17 @@
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store";
+import { addCard } from "../slices/CardSlice";
+
+
 const NewCardForm = () => {
+    const dispatch: AppDispatch = useDispatch();
+
+    const handleNewCardSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (title.trim()) [
+            dispatch(addCard)
+        ]
+    }
   return (
     <div className="group/new-card m-3 flex h-44 w-full justify-center">
       <form

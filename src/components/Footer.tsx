@@ -18,7 +18,6 @@ const Footer = () => {
             dispatch(addList({
                 id: Date.now(),
                 title,
-                cards: []
             }))
             setTitle("");
         }
