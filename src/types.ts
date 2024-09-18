@@ -1,5 +1,17 @@
 import { FormEvent } from "react";
 
+export interface Card {
+    id: number;
+    title: string;
+    description: string;
+}
+
+export interface List {
+    id: number;
+    title: string;
+    cards: Card[];
+}
+
 interface NewListFormElements extends HTMLFormControlsCollection {
   title: HTMLInputElement;
 }
