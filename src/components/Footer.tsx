@@ -15,10 +15,13 @@ const Footer = () => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         if (title.trim()) {
-            dispatch(addList({
+
+            const newList = {
                 id: Date.now(),
                 title,
-            }))
+                cardIds: []
+            }
+            dispatch(addList(newList))
             setTitle("");
         }
     }
