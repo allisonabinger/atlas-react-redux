@@ -31,6 +31,7 @@ const NewCardForm = ({ listId }: NewCardFormProps) => {
         id: Date.now(),
         title,
         description,
+        listId,
       };
       dispatch(addCard(newCard));
       dispatch(addCardToList({ listId, cardId: newCard.id }));

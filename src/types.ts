@@ -4,6 +4,7 @@ export interface CardType {
     id: number;
     title: string;
     description: string;
+    listId: number;
 }
 
 export interface ListType {

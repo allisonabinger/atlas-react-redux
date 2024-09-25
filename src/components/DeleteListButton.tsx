@@ -13,7 +13,7 @@ const DeleteListButton = ({ id, title }: DeleteListProps) => {
 
   const handleRemoveList = () => {
     const shouldRemove = confirm(
-      `Are you sure you want to delete the list ${title}`
+      `Are you sure you want to delete the list ${title}?`
     );
 
     if (shouldRemove) {
